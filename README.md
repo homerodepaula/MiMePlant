@@ -8,7 +8,7 @@ Um agente é treinado por imitação, a partir de um oráculo especialista, em u
 simulador de fazenda. O algoritmo base é a **Clonagem Comportamental (BC)** e o
 refinamento é o **DAgger**. O estudo mostra como a escolha dos hiperparâmetros de
 treinamento afeta o desempenho e a robustez do agente, dentro e fora da
-distribuição climática — motivando a calibração automática por Otimização de
+distribuição climática, motivando a calibração automática por Otimização de
 Hiperparâmetros (HPO) prevista para a etapa final da dissertação.
 
 > Este repositório contém apenas o código de experimentação e os resultados.
