@@ -1,0 +1,9 @@
+{
+  "agente": "il_bc",
+  "config": "lr_baixo",
+  "hiperparametros_variados": {
+    "lr": 5e-05,
+    "dim_lstm": 512,
+    "len_seq": 32
+  }
+}

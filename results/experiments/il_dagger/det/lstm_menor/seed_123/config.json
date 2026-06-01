@@ -1,0 +1,12 @@
+{
+  "agente": "il_dagger",
+  "config": "lstm_menor",
+  "exp_categoria": "det",
+  "exp_valor": 0.0,
+  "exp_decay": false,
+  "hiperparametros_variados": {
+    "lr": 0.0003,
+    "dim_lstm": 256,
+    "len_seq": 32
+  }
+}

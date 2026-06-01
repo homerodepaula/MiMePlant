@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Modelos treinados e demonstracoes brutas
+# (regenerados pelos scripts; nao versionados por questao de tamanho)
+*.pt
+*.pth
+trajetorias_especialista.json
+
+# Logs e artefatos de processo
+*.log
+*.err
+*.pid
+
+# Sistema operacional / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

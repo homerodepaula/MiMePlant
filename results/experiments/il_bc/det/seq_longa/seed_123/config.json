@@ -1,0 +1,9 @@
+{
+  "agente": "il_bc",
+  "config": "seq_longa",
+  "hiperparametros_variados": {
+    "lr": 0.0003,
+    "dim_lstm": 512,
+    "len_seq": 64
+  }
+}
