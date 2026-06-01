@@ -21,8 +21,10 @@ environment/                Simulador da fazenda (interface Gymnasium):
                             clima, solo, plantas, pragas, ervas daninhas,
                             polinizadores, aves e instalacoes.
 agents/
-  imitation-learning/       bot_perfeito.py  -> oraculo especialista
-                            il_agent.py      -> agente BC + DAgger (LSTM)
+  imitation-learning/       bot_perfeito.py  -> oraculo especialista (professor)
+                            il_agent.py      -> agente de imitacao (LSTM):
+                                                BC     = metodo treinar_bc (ou --so-bc)
+                                                DAgger = metodo treinar_dagger
   ppo-lstm-masked/          wrapper de mascaramento de acoes invalidas
 results/                    metricas, avaliacoes, analise consolidada e figuras
 
