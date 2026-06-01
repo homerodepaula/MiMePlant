@@ -32,19 +32,18 @@ from collections import defaultdict
 RAIZ    = os.path.dirname(os.path.abspath(__file__))
 DIR_IL  = os.path.join(RAIZ, 'agents', 'imitation-learning')
 DIR_AMB = os.path.join(RAIZ, 'environment')
-DIR_PPO = os.path.join(RAIZ, 'agents', 'ppo-lstm-masked')
 
 sys.path.insert(0, DIR_IL)
 sys.path.insert(0, DIR_AMB)
-sys.path.insert(0, DIR_PPO)
 for sub in ['plant', 'birds', 'pollinators', 'soil', 'weather',
             'weeds', 'pest', 'cides-fertilizers', 'facilities']:
     sys.path.insert(0, os.path.join(DIR_AMB, sub))
 
 from env import AmbienteFazendaGym
-from ppo_lstm_masked import InvolucroMascaraAcoes
+from mascara_acoes import InvolucroMascaraAcoes
 from bot_perfeito import BotPerfeito
-from il_agent import AgenteBCLSTM, OBS_DIM, N_ACOES
+from rede_lstm import OBS_DIM, N_ACOES
+from dagger import AgenteDAgger
 
 # ── Configuracao geral ────────────────────────────────────────────────────────
 PASSOS_MAXIMOS   = 365
@@ -353,7 +352,7 @@ def executar_config(nome_cfg, hp, dir_resultados, env_wrapped, bot, episodios_ex
     print(f'\n  seed={seed}  lr={hp["lr"]:.0e} | dim_lstm={hp["dim_lstm"]} | len_seq={hp["len_seq"]}')
 
     # Criar agente com dim_lstm da config
-    agente = AgenteBCLSTM(dim_lstm=hp['dim_lstm'])
+    agente = AgenteDAgger(dim_lstm=hp['dim_lstm'])
     agente.calcular_normalizacao(episodios_expert)
 
     metricas_bc  = _novas_metricas_il()
@@ -365,7 +364,7 @@ def executar_config(nome_cfg, hp, dir_resultados, env_wrapped, bot, episodios_ex
 
     import torch, torch.nn as nn, torch.nn.functional as F
     from torch.utils.data import DataLoader
-    from il_agent import ConjuntoDadosBC
+    from rede_lstm import ConjuntoDadosBC
 
     dataset_bc = ConjuntoDadosBC(episodios_expert, agente.obs_media, agente.obs_std, hp['len_seq'])
     loader_bc  = DataLoader(dataset_bc, batch_size=64, shuffle=True, drop_last=True)

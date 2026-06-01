@@ -19,13 +19,13 @@ Hiperparâmetros (HPO) prevista para a etapa final da dissertação.
 ```
 environment/                Simulador da fazenda (interface Gymnasium):
                             clima, solo, plantas, pragas, ervas daninhas,
-                            polinizadores, aves e instalacoes.
+                            polinizadores, aves, instalacoes e o wrapper de
+                            mascaramento de acoes (mascara_acoes.py).
 agents/
   imitation-learning/       bot_perfeito.py  -> oraculo especialista (professor)
-                            il_agent.py      -> agente de imitacao (LSTM):
-                                                BC     = metodo treinar_bc (ou --so-bc)
-                                                DAgger = metodo treinar_dagger
-  ppo-lstm-masked/          wrapper de mascaramento de acoes invalidas
+                            rede_lstm.py     -> rede LSTM + dataset (compartilhados)
+                            bc.py            -> Behavioral Cloning (classe AgenteBC)
+                            dagger.py        -> DAgger (AgenteDAgger, estende AgenteBC)
 results/                    metricas, avaliacoes, analise consolidada e figuras
 
 run_il_experiments.py       treina e avalia BC + DAgger de UMA configuracao

@@ -17,9 +17,10 @@ RAIZ = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, RAIZ)
 # Reaproveita toda a infra do run_il_experiments
 import run_il_experiments as R
-from il_agent import AgenteBCLSTM, ConjuntoDadosBC
+from bc import AgenteBC
+from rede_lstm import ConjuntoDadosBC
 from env import AmbienteFazendaGym
-from ppo_lstm_masked import InvolucroMascaraAcoes
+from mascara_acoes import InvolucroMascaraAcoes
 from bot_perfeito import BotPerfeito
 
 CONFIGS = ['baseline', 'lr_baixo', 'lr_alto', 'lstm_menor', 'seq_longa']
@@ -55,7 +56,7 @@ def main():
                 torch.cuda.manual_seed_all(seed)
                 torch.backends.cudnn.deterministic = True; torch.backends.cudnn.benchmark = False
 
-            agente = AgenteBCLSTM(dim_lstm=hp['dim_lstm'])
+            agente = AgenteBC(dim_lstm=hp['dim_lstm'])
             agente.calcular_normalizacao(episodios)
             ds = ConjuntoDadosBC(episodios, agente.obs_media, agente.obs_std, hp['len_seq'])
             ld = DataLoader(ds, batch_size=64, shuffle=True, drop_last=True)

@@ -8,7 +8,7 @@ RAIZ = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, RAIZ)
 import run_il_experiments as R
 from env import AmbienteFazendaGym
-from ppo_lstm_masked import InvolucroMascaraAcoes
+from mascara_acoes import InvolucroMascaraAcoes
 
 N_ACOES = 15
 

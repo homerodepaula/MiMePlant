@@ -9,14 +9,13 @@ import numpy as np
 RAIZ    = os.path.dirname(os.path.abspath(__file__))
 DIR_IL  = os.path.join(RAIZ, 'agents', 'imitation-learning')
 DIR_AMB = os.path.join(RAIZ, 'environment')
-DIR_PPO = os.path.join(RAIZ, 'agents', 'ppo-lstm-masked')
-sys.path.insert(0, DIR_IL); sys.path.insert(0, DIR_AMB); sys.path.insert(0, DIR_PPO)
+sys.path.insert(0, DIR_IL); sys.path.insert(0, DIR_AMB)
 for sub in ['plant', 'birds', 'pollinators', 'soil', 'weather',
             'weeds', 'pest', 'cides-fertilizers', 'facilities']:
     sys.path.insert(0, os.path.join(DIR_AMB, sub))
 
 from env import AmbienteFazendaGym
-from ppo_lstm_masked import InvolucroMascaraAcoes
+from mascara_acoes import InvolucroMascaraAcoes
 from bot_perfeito import BotPerfeito
 
 

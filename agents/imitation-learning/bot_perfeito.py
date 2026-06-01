@@ -451,9 +451,8 @@ class ExecutorBot:
 # ─── Entry point ──────────────────────────────────────────────────────────────
 
 if __name__ == '__main__':
-    sys.path.insert(0, os.path.join(_DIR, '../ppo-lstm-masked'))
     from env import AmbienteFazendaGym
-    from ppo_lstm_masked import InvolucroMascaraAcoes
+    from mascara_acoes import InvolucroMascaraAcoes
 
     # --- argumentos CLI (protocolo v2.0) ---
     import argparse
